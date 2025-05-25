@@ -2,25 +2,36 @@ class Animal:
     def speak(self):
         raise NotImplementedError("Метод speak должен быть переопределён в подклассе")
 
-    def describe(self):
+    def __init__(self,name):
+        self.name = name
         print(f"This is a {self.__class__.__name__}")
 
 class Dog(Animal):
-    def speak(self):
-        print("Dog says: Woof")
+    
+    def __init__(self,name):
+        super().__init__(name)
+    def speak(self):     
+        print(f"{self.name}: Woof")
 
 class Cat(Animal):
-    def speak(self):
-        print("Cat says: Meow")
+    def __init__(self,name):
+        super().__init__(name)
+    def speak(self):    
+        print(f"{self.name}: Meow")
 
 class Parrot(Animal):
+    def __init__(self,name):
+        super().__init__(name)
     def speak(self):
-        print("Parrot says: I'm a pirate")
+        print(f"{self.name}: I'm a pirate")
 
+Cat = Cat("murzheek")
+Cat.speak()
+Dog = Dog("reks")
+Dog.speak()
+Parrot = Parrot("greesha")
+Parrot.speak()
 
-animals = [Dog(), Cat(), Parrot()]
-for animal in animals:
-    animal.speak()
 
 
 
